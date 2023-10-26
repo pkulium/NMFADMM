@@ -17,6 +17,7 @@ def execute_factorization():
     print("\nFactors saved.\n")
     user_factors = model.save_user_factors()
     item_factor = model.save_item_factors()
+    return
 
 if __name__ == '__main__':
     execute_factorization()
