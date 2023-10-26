@@ -122,6 +122,7 @@ class ADMM_NMF:
         user_factor = np.concatenate([ids, self.W_plus], axis=1)
         user_factor = pd.DataFrame(user_factor, columns=columns)
         user_factor.to_csv(self.args.user_path, index=None)
+        return user_factor
 
     def save_item_factors(self):
         """
