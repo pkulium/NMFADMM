@@ -15,8 +15,8 @@ def execute_factorization():
     model = ADMM_NMF(X, args)
     model.optimize()
     print("\nFactors saved.\n")
-    model.save_user_factors()
-    model.save_item_factors()
+    user_factors = model.save_user_factors()
+    item_factor = model.save_item_factors()
 
 if __name__ == '__main__':
     execute_factorization()

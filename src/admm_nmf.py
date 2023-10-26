@@ -119,10 +119,10 @@ class ADMM_NMF:
         """
         columns = ["id"] + ["x_" + str(x) for x in range(self.args.dimensions)]
         ids = np.array(range(self.V.shape[0])).reshape(-1, 1)
-        user_factor = np.concatenate([ids, self.W_plus], axis=1)
-        user_factor = pd.DataFrame(user_factor, columns=columns)
+        tmp = np.concatenate([ids, self.W_plus], axis=1)
+        user_factor = pd.DataFrame(tmp, columns=columns)
         user_factor.to_csv(self.args.user_path, index=None)
-        return user_factor
+        return tmp
 
     def save_item_factors(self):
         """
@@ -130,7 +130,7 @@ class ADMM_NMF:
         """
         columns = ["id"] + ["x_" + str(x) for x in range(self.args.dimensions)]
         ids = np.array(range(self.V.shape[1])).reshape(-1, 1)
-        item_factor = np.concatenate([ids, self.H_plus.T], axis=1)
-        item_factor = pd.DataFrame(item_factor, columns=columns)
+        tmp = np.concatenate([ids, self.H_plus.T], axis=1)
+        item_factor = pd.DataFrame(tmp, columns=columns)
         item_factor.to_csv(self.args.item_path, index=None)
-        return item_factor
+        return tmp
