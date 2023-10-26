@@ -17,7 +17,8 @@ def execute_factorization():
     print("\nFactors saved.\n")
     user_factors = model.save_user_factors()
     item_factor = model.save_item_factors()
-    return
+    diff = user_factors.dot(item_factor.transpose()) - X
+    print(diff)
 
 if __name__ == '__main__':
     execute_factorization()
